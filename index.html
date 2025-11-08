@@ -3,15 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Da Bang Tou - Research Portfolio</title>
+    <title>Xiao Bang Tou - Research Portfolio</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="https://cdn.jsdelivr.net/npm/three@0.150.0/build/three.min.js"></script>
 </head>
 <body>
     <header>
         <div class="container">
             <div class="header-content">
-                <a href="index.html" class="logo">Da Bang Tou</a>
+                <a href="index.html" class="logo">Xiao Bang Tou</a>
                 <nav>
                     <a href="index.html">Home</a>
                     <a href="publications.html">Publications</a>
@@ -26,9 +25,8 @@
     <main>
         <div class="container">
             <section class="hero">
-                <h1>Da Bang Tou</h1>
+                <h1>Xiao Bang Tou</h1>
                 <p>Exploring the frontiers of knowledge through innovative research and discovery</p>
-                <div id="threejs-container"></div>
             </section>
 
             <section class="section">
@@ -60,161 +58,6 @@
             <p>&copy; 2024 Research Portfolio. All rights reserved.</p>
         </div>
     </footer>
-
-    <script>
-        // Wait for DOM to be ready
-        document.addEventListener('DOMContentLoaded', function() {
-        // Scene setup
-        const container = document.getElementById('threejs-container');
-        const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(50, container.clientWidth / container.clientHeight, 0.1, 1000);
-        const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
-        renderer.setSize(container.clientWidth, container.clientHeight);
-        renderer.setPixelRatio(window.devicePixelRatio);
-        container.appendChild(renderer.domElement);
-
-        // Lighting
-        const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
-        scene.add(ambientLight);
-
-        const directionalLight1 = new THREE.DirectionalLight(0xff6b9d, 1);
-        directionalLight1.position.set(5, 5, 5);
-        scene.add(directionalLight1);
-
-        const directionalLight2 = new THREE.DirectionalLight(0x00d4ff, 1);
-        directionalLight2.position.set(-5, -5, -5);
-        scene.add(directionalLight2);
-
-        const pointLight = new THREE.PointLight(0xffffff, 0.8);
-        pointLight.position.set(0, 3, 5);
-        scene.add(pointLight);
-
-        // Low poly head - make it actually look like a head
-        const headGroup = new THREE.Group();
-        
-        // Main head (slightly elongated sphere)
-        const headGeometry = new THREE.SphereGeometry(0.8, 8, 8);
-        const headMaterial = new THREE.MeshPhongMaterial({
-            color: 0xffdbac,
-            flatShading: true,
-            shininess: 30
-        });
-        const head = new THREE.Mesh(headGeometry, headMaterial);
-        head.scale.set(1, 1.2, 1); // Make it taller
-        headGroup.add(head);
-
-        // Simple eyes
-        const eyeGeometry = new THREE.SphereGeometry(0.1, 6, 6);
-        const eyeMaterial = new THREE.MeshPhongMaterial({ color: 0x000000 });
-        
-        const leftEye = new THREE.Mesh(eyeGeometry, new THREE.MeshPhongMaterial({ color: 0x000000 }));
-        leftEye.position.set(-0.25, 0.2, 0.75);
-        headGroup.add(leftEye);
-        
-        const rightEye = new THREE.Mesh(eyeGeometry, new THREE.MeshPhongMaterial({ color: 0x000000 }));
-        rightEye.position.set(0.25, 0.2, 0.75);
-        headGroup.add(rightEye);
-
-        headGroup.position.set(-1.5, 0.5, 0);
-        scene.add(headGroup);
-
-        // Low poly baseball bat - properly shaped and oriented
-        const batGroup = new THREE.Group();
-
-        // Bat knob (bottom, small sphere)
-        const knobGeometry = new THREE.IcosahedronGeometry(0.15, 1);
-        const knobMaterial = new THREE.MeshPhongMaterial({
-            color: 0x00d4ff,
-            flatShading: true,
-            shininess: 80
-        });
-        const knob = new THREE.Mesh(knobGeometry, knobMaterial);
-        knob.position.y = -1.5;
-        batGroup.add(knob);
-
-        // Bat handle (thin cylinder at bottom)
-        const handleGeometry = new THREE.CylinderGeometry(0.12, 0.12, 0.6, 8);
-        const handleMaterial = new THREE.MeshPhongMaterial({
-            color: 0x8b4513,
-            flatShading: true,
-            shininess: 50
-        });
-        const handle = new THREE.Mesh(handleGeometry, handleMaterial);
-        handle.position.y = -0.9;
-        batGroup.add(handle);
-
-        // Bat taper (middle section)
-        const taperGeometry = new THREE.CylinderGeometry(0.12, 0.2, 0.4, 8);
-        const taperMaterial = new THREE.MeshPhongMaterial({
-            color: 0x8b4513,
-            flatShading: true,
-            shininess: 50
-        });
-        const taper = new THREE.Mesh(taperGeometry, taperMaterial);
-        taper.position.y = -0.4;
-        batGroup.add(taper);
-
-        // Bat barrel (wide top section - the hitting part)
-        const barrelGeometry = new THREE.CylinderGeometry(0.2, 0.2, 1.0, 8);
-        const barrelMaterial = new THREE.MeshPhongMaterial({
-            color: 0xff6b9d,
-            flatShading: true,
-            shininess: 100
-        });
-        const barrel = new THREE.Mesh(barrelGeometry, barrelMaterial);
-        barrel.position.y = 0.3;
-        batGroup.add(barrel);
-
-        // Bat tip (rounded top)
-        const tipGeometry = new THREE.SphereGeometry(0.2, 8, 8);
-        const tipMaterial = new THREE.MeshPhongMaterial({
-            color: 0xff6b9d,
-            flatShading: true,
-            shininess: 100
-        });
-        const tip = new THREE.Mesh(tipGeometry, tipMaterial);
-        tip.position.y = 0.9;
-        tip.scale.set(1, 0.5, 1);
-        batGroup.add(tip);
-
-        batGroup.position.set(1.5, 0, 0);
-        scene.add(batGroup);
-
-        // Camera position
-        camera.position.set(0, 2, 6);
-        camera.lookAt(0, 0, 0);
-
-        // Animation
-        function animate() {
-            requestAnimationFrame(animate);
-
-            // Rotate the head and bat
-            headGroup.rotation.y += 0.01;
-            headGroup.rotation.x += 0.005;
-            
-            batGroup.rotation.y += 0.01;
-            batGroup.rotation.x += 0.005;
-
-            // Subtle floating animation
-            headGroup.position.y = 0.5 + Math.sin(Date.now() * 0.001) * 0.1;
-            batGroup.position.y = Math.sin(Date.now() * 0.001 + Math.PI) * 0.1;
-
-            renderer.render(scene, camera);
-        }
-
-        // Handle window resize
-        function onWindowResize() {
-            camera.aspect = container.clientWidth / container.clientHeight;
-            camera.updateProjectionMatrix();
-            renderer.setSize(container.clientWidth, container.clientHeight);
-        }
-
-        window.addEventListener('resize', onWindowResize);
-
-        // Start animation
-        animate();
-        });
-    </script>
 </body>
 </html>
 
