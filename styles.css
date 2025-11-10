@@ -42,7 +42,7 @@ body::after {
     width: 100%;
     height: 100%;
     background: radial-gradient(circle at 20% 50%, rgba(255, 107, 157, 0.3) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(0, 212, 255, 0.3) 0%, transparent 50%);
+                radial-gradient(circle at 80% 80%, rgba(0, 212, 255, 0.3) 0%, transparent 25%);
     z-index: -1;
     animation: pulse 8s ease-in-out infinite alternate;
 }
