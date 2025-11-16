@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Blog Post Title - Research Portfolio</title>
+    <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="../index.html" class="logo">Research Portfolio</a>
+                <nav>
+                    <a href="../index.html">Home</a>
+                    <a href="../page/publications.html">Publications</a>
+                    <a href="../page/projects.html">Projects</a>
+                    <a href="../page/about.html">About</a>
+                    <a href="../page/contact.html">Contact</a>
+                    <a href="../blog/index.html">Blog</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <section class="hero">
+                <h1>My San Guo Sha Dealing Simulator!</h1>
+                <p>(Even with a user interface :D)</p>
+            </section>
+
+            <article class="section" style="max-width: 800px; margin: 0 auto;">
+                <div style="color: rgba(255, 255, 255, 0.9); line-height: 1.8;">
+                    <!-- Your blog content goes here -->
+                    
+                    <h2 style="color: #ffffff; margin-top: 2rem; margin-bottom: 1rem;">I am thinking what to write here</h2>
+                    <p style="margin-bottom: 1.5rem;">
+                        In San Guo Sha (Legends of the Three Kingdoms, National War Mode), 
+                        each player receives eight generals from four factions (Wei, Shu, Wu, and Qun). 
+                        Each player must select two generals from the same faction. <br>
+                        I (was advised to) write a Python dealing program to simulate the probability that two players in the game 
+                        have no common faction to select from their eight-general pool. <br>
+                        I ran up to 10^9 dealing trials: <br>
+                        If the number of generals in each faction is 100 (which approximates sampling without replacement), 
+                        the probability is about 5.6%. <br>
+                        If the number of generals in each faction is 20 (which approximates sampling with replacement), 
+                        the probability is about 6.3% — slightly higher, which makes perfect sense! <br>
+                        Credit goes to Bretonia’s Shy Ghost, who also wrote a Python program to verify my result! <br>
+                        (And who believes my computer would crash if I actually tried 10^9 dealing trials.)
+
+                    </p>
+                    
+                    <!-- Add images/figures here -->
+                    <figure style="margin: 2rem 0; text-align: center;">
+                        <img src="../assets/images/my_user_interface!.png" alt="user interface!" 
+                             style="max-width: 50%; height: auto; border-radius: 10px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);">
+                        <figcaption style="margin-top: 0.5rem; font-size: 0.9rem; color: rgba(255, 255, 255, 0.7);">
+                            Figure 1: My user interface!!!!!!!
+                        </figcaption>
+                    </figure>
+                    
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Research Portfolio. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
