@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Blog Post Title - Research Portfolio</title>
+    <link rel="stylesheet" href="../assets/styles.css">
+
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="../index.html" class="logo">Research Portfolio</a>
+                <nav>
+                    <a href="../index.html">Home</a>
+                    <a href="../page/publications.html">Publications</a>
+                    <a href="../page/projects.html">Projects</a>
+                    <a href="../page/about.html">About</a>
+                    <a href="../page/contact.html">Contact</a>
+                    <a href="../blog/index.html">Blog</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <section class="hero">
+                <h1>Which dealing method produces higher card entropy?</h1>
+                <p> </p>
+            </section>
+
+            <article class="section" style="max-width: 800px; margin: 0 auto;">
+                <div style="color: rgba(255, 255, 255, 0.9); line-height: 1.8;">
+                    <!-- Your blog content goes here -->
+                    
+                    <h2 style="color: #ffffff; margin-top: 2rem; margin-bottom: 1rem;">Riffle shuffle versus Overhead shuffle</h2>
+                    <p style="margin-bottom: 1.5rem;">
+                        I compared the two most common shuffling methods. 
+                        Entropy of the shuffling results is calculated based on the probability distributon
+                        of shuffled cards using the Shannon entropy equation:
+                        <br>
+                        $$ H(X) = - \sum_{i=1}^{n} p_i \log_2 p_i $$
+                        
+                    </p>
+                    <p>
+                        where \( p_i \) is the probability of the \( i^{th} \) outcome.
+                        For example, in card shuffling, each possible deck order represents one outcome,
+                        and a perfect shuffle makes all outcomes equally likely, maximizing the entropy.
+                    </p>
+                    
+                    <!-- Add images/figures here -->
+                    <figure style="margin: 2rem 0; text-align: center;">
+                        <img src="../assets/images/shuffle_methods.png"  
+                             style="max-width: 50%; height: auto; border-radius: 10px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);">
+                        <figcaption style="margin-top: 0.5rem; font-size: 0.9rem; color: rgba(255, 255, 255, 0.7);">
+                            Figure 1: Two shuffling methods
+                        </figcaption>
+                    </figure>
+                    
+                    <p>
+                        Using 8 cards as an example, 1000000 trials was conducted in total (which is higher than factorial 8). 
+                        The maximum entropy should be the natural logarithm of the factorial of the number of cards.
+                        For each trial/the \(i^{th}\) outcome, both shuffle methods are repeated 6 times.
+                        And turns out that the final entropy using overhead shuffle is higher than using riffle shuffle,
+                        and both are smaller than the maximum possible entropy. 
+                    </p>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Research Portfolio. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
