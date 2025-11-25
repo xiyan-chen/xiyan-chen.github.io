@@ -36,7 +36,7 @@
                     <!-- Your blog content goes here -->
                     
                     <h2 style="color: #3b3355; margin-top: 2rem; margin-bottom: 1rem;">Riffle shuffle versus Overhead shuffle</h2>
-                    <p style="margin-bottom: 1.5rem;">
+                        <p style="margin-bottom: 1.5rem;">
                         I compared the two most common shuffling methods. 
                         Entropy of the shuffling results is calculated based on the probability distributon
                         of shuffled cards using the Shannon entropy equation:
@@ -63,7 +63,8 @@
                         Using 8 cards as an example, 1000000 trials was conducted in total (which is higher than factorial 8). 
                         The maximum entropy should be the natural logarithm of the factorial of the number of cards.
                         For each trial/the \(i^{th}\) outcome, both shuffle methods are repeated 6 times.
-                        And turns out that the final entropy using overhead shuffle is higher than using riffle shuffle,
+                    <p>
+                        It turns out that the final entropy using overhead shuffle is higher than using riffle shuffle,
                         and both are smaller than the maximum possible entropy. 
                     </p>
                 </div>
