@@ -89,7 +89,7 @@
                         <h3>Contact</h3>
                         <p>Get in touch for collaborations, questions, or discussions about research opportunities.</p>
                     </a>
-                    <a href="blog/index.html" class="link-card">
+                    <a href="#" onclick="goToSecret(); return false;" class="link-card">
                         <h3>Blog</h3>
                         <p>Read my thoughts, insights, and updates on my research journey and academic experiences.</p>
                     </a>
@@ -104,6 +104,38 @@
         </div>
     </footer>
 </body>
+
+
+
+
+<script>
+    // ======= CONFIG =======
+    const PASSWORD    = "1234";           // your password here
+    const TARGET_URL  = "blog/index.html";    // page to open after login
+    const STORAGE_KEY = "secret_auth_ok"; // localStorage key
+    // ======================
+    
+    function goToSecret() {
+      // 1. Check if authenticated already (even across browser restarts)
+      if (localStorage.getItem(STORAGE_KEY) === "true") {
+        window.location.href = TARGET_URL;
+        return;
+      }
+    
+      // 2. Ask for password
+      const pw = prompt("Enter password:");
+      if (pw === null) return; // user pressed cancel
+    
+      if (pw === PASSWORD) {
+        // 3. Save login status permanently
+        localStorage.setItem(STORAGE_KEY, "true");
+        window.location.href = TARGET_URL;
+      } else {
+        alert("Wrong password!");
+      }
+    }
+</script>
+
 </html>
 
 
